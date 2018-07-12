@@ -1,0 +1,31 @@
+// 读取第一个非空字符
+
+#include <stdio.h>
+#include <ctype.h>
+
+char get_first(void);
+int mainz(void)
+{
+    char ch;
+
+    ch = get_first();
+    putchar(ch);
+
+    return 0;
+}
+
+char get_first(void)
+{
+    int i;
+
+    i = getchar();
+    while (isspace(i))
+    {
+        i = getchar();
+    }
+    while (getchar() != '\n')       // 忽略后边的字符及 Etner 符
+    {
+        continue;
+    }
+    return i;
+}
